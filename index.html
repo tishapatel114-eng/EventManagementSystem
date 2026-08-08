@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Event Management System</h1>
+
+    <h2>Create Event</h2>
+
+    <input type="text" id="eventName" placeholder="Event Name">
+    <input type="date" id="eventDate">
+    <input type="text" id="eventLocation" placeholder="Event Location">
+
+    <select id="eventType">
+        <option>Wedding</option>
+        <option>Birthday</option>
+        <option>Corporate</option>
+        <option>Festival</option>
+    </select>
+
+    <h2>Book Vendor</h2>
+
+    <select id="vendor">
+        <option>Decoration</option>
+        <option>Photography</option>
+        <option>Food Catering</option>
+        <option>DJ</option>
+        <option>Makeup Artist</option>
+    </select>
+
+    <h2>Food Management</h2>
+
+    <select id="food">
+        <option>Gujarati</option>
+        <option>Punjabi</option>
+        <option>Chinese</option>
+        <option>South Indian</option>
+        <option>Dessert</option>
+    </select>
+
+    <h2>Decoration</h2>
+
+    <select id="decoration">
+        <option>Royal</option>
+        <option>Traditional</option>
+        <option>Modern</option>
+        <option>Floral</option>
+    </select>
+
+    <h2>Guest List</h2>
+
+    <input type="text" id="guestName" placeholder="Guest Name">
+    <input type="text" id="guestPhone" placeholder="Phone Number">
+
+    <br><br>
+
+    <button onclick="saveEvent()">Save Event</button>
+    <button onclick="showEvent()">Display Event</button>
+    <button onclick="searchGuest()">Search Guest</button>
+    <button onclick="deleteGuest()">Delete Guest</button>
+
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
