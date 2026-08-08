@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Event Management System</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -13,61 +19,69 @@
 
     <h2>Create Event</h2>
 
-    <input type="text" id="eventName" placeholder="Event Name">
-    <input type="date" id="eventDate">
-    <input type="text" id="eventLocation" placeholder="Event Location">
+    <form id="eventForm">
 
-    <select id="eventType">
-        <option>Wedding</option>
-        <option>Birthday</option>
-        <option>Corporate</option>
-        <option>Festival</option>
-    </select>
+        <label>Event Name:</label>
+        <br>
 
-    <h2>Book Vendor</h2>
+        <input
+            type="text"
+            id="eventName"
+            placeholder="Enter event name"
+        >
 
-    <select id="vendor">
-        <option>Decoration</option>
-        <option>Photography</option>
-        <option>Food Catering</option>
-        <option>DJ</option>
-        <option>Makeup Artist</option>
-    </select>
+        <br><br>
 
-    <h2>Food Management</h2>
+        <label>Event Date:</label>
+        <br>
 
-    <select id="food">
-        <option>Gujarati</option>
-        <option>Punjabi</option>
-        <option>Chinese</option>
-        <option>South Indian</option>
-        <option>Dessert</option>
-    </select>
+        <input
+            type="date"
+            id="eventDate"
+        >
 
-    <h2>Decoration</h2>
+        <br><br>
 
-    <select id="decoration">
-        <option>Royal</option>
-        <option>Traditional</option>
-        <option>Modern</option>
-        <option>Floral</option>
-    </select>
+        <label>Event Location:</label>
+        <br>
 
-    <h2>Guest List</h2>
+        <input
+            type="text"
+            id="eventLocation"
+            placeholder="Enter event location"
+        >
 
-    <input type="text" id="guestName" placeholder="Guest Name">
-    <input type="text" id="guestPhone" placeholder="Phone Number">
+        <br><br>
 
-    <br><br>
+        <label>Event Type:</label>
+        <br>
 
-    <button onclick="saveEvent()">Save Event</button>
-    <button onclick="showEvent()">Display Event</button>
-    <button onclick="searchGuest()">Search Guest</button>
-    <button onclick="deleteGuest()">Delete Guest</button>
+        <select id="eventType">
 
-    <div id="output"></div>
+            <option value="">Select Event Type</option>
+
+            <option value="Wedding">Wedding</option>
+
+            <option value="Birthday">Birthday</option>
+
+            <option value="Corporate">Corporate</option>
+
+            <option value="Engagement">Engagement</option>
+
+        </select>
+
+        <br><br>
+
+        <button type="submit">
+            Create Event
+        </button>
+
+    </form>
+
+    <div id="eventResult"></div>
 
     <script src="script.js"></script>
 
 </body>
+
 </html>

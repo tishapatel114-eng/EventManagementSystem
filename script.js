@@ -1,105 +1,63 @@
-let eventDetails = {};
-let guests = [];
+document
+    .getElementById("eventForm")
+    .addEventListener("submit", function(event) {
 
-function saveEvent() {
+        event.preventDefault();
 
-    eventDetails.name =
-        document.getElementById("eventName").value;
+        let eventName =
+            document.getElementById("eventName").value;
 
-    eventDetails.date =
-        document.getElementById("eventDate").value;
+        let eventDate =
+            document.getElementById("eventDate").value;
 
-    eventDetails.location =
-        document.getElementById("eventLocation").value;
+        let eventLocation =
+            document.getElementById("eventLocation").value;
 
-    eventDetails.type =
-        document.getElementById("eventType").value;
+        let eventType =
+            document.getElementById("eventType").value;
 
-    eventDetails.vendor =
-        document.getElementById("vendor").value;
 
-    eventDetails.food =
-        document.getElementById("food").value;
+        if (eventName === "") {
+            alert("Please enter event name");
+            return;
+        }
 
-    eventDetails.decoration =
-        document.getElementById("decoration").value;
+        if (eventDate === "") {
+            alert("Please select event date");
+            return;
+        }
 
-    let guestName =
-        document.getElementById("guestName").value;
+        if (eventLocation === "") {
+            alert("Please enter event location");
+            return;
+        }
 
-    let guestPhone =
-        document.getElementById("guestPhone").value;
+        if (eventType === "") {
+            alert("Please select event type");
+            return;
+        }
 
-    guests.push({
-        name: guestName,
-        phone: guestPhone
-    });
 
-    alert("Event Saved Successfully");
-}
+        document.getElementById("eventResult").innerHTML = `
 
-function showEvent() {
+            <h3>Event Created Successfully!</h3>
 
-    let output = "";
+            <p>
+                Event Name: ${eventName}
+            </p>
 
-    output += "<h2>Event Details</h2>";
+            <p>
+                Event Date: ${eventDate}
+            </p>
 
-    output += "Event: " + eventDetails.name + "<br>";
-    output += "Date: " + eventDetails.date + "<br>";
-    output += "Location: " + eventDetails.location + "<br>";
-    output += "Type: " + eventDetails.type + "<br>";
-    output += "Vendor: " + eventDetails.vendor + "<br>";
-    output += "Food: " + eventDetails.food + "<br>";
-    output += "Decoration: " + eventDetails.decoration + "<br>";
+            <p>
+                Event Location: ${eventLocation}
+            </p>
 
-    output += "<h3>Guest List</h3>";
+            <p>
+                Event Type: ${eventType}
+            </p>
 
-    guests.forEach(function(guest) {
-
-        output += guest.name + " - "
-                + guest.phone + "<br>";
-
-    });
-
-    document.getElementById("output").innerHTML = output;
-}
-
-function searchGuest() {
-
-    let name = prompt("Enter Guest Name");
-
-    let guest = guests.find(function(g) {
-
-        return g.name.toLowerCase() === name.toLowerCase();
+        `;
 
     });
-
-    if (guest) {
-
-        alert(
-            "Guest Found: " +
-            guest.name +
-            " (" +
-            guest.phone +
-            ")"
-        );
-
-    } else {
-
-        alert("Guest Not Found");
-
-    }
-}
-
-function deleteGuest() {
-
-    let name = prompt("Enter Guest Name to Delete");
-
-    guests = guests.filter(function(g) {
-
-        return g.name.toLowerCase() !== name.toLowerCase();
-
-    });
-
-    alert("Guest Deleted");
-}
