@@ -1,105 +1,282 @@
-let eventDetails = {};
-let guests = [];
+// =====================================================
+// CREATE EVENT
+// =====================================================
 
-function saveEvent() {
+document
+    .getElementById("eventForm")
+    .addEventListener("submit", function(event) {
 
-    eventDetails.name =
-        document.getElementById("eventName").value;
+        event.preventDefault();
 
-    eventDetails.date =
-        document.getElementById("eventDate").value;
+        let eventName =
+            document.getElementById("eventName").value.trim();
 
-    eventDetails.location =
-        document.getElementById("eventLocation").value;
+        let eventDate =
+            document.getElementById("eventDate").value;
 
-    eventDetails.type =
-        document.getElementById("eventType").value;
+        let eventLocation =
+            document.getElementById("eventLocation").value.trim();
 
-    eventDetails.vendor =
-        document.getElementById("vendor").value;
+        let eventType =
+            document.getElementById("eventType").value;
 
-    eventDetails.food =
-        document.getElementById("food").value;
 
-    eventDetails.decoration =
-        document.getElementById("decoration").value;
+        if (eventName === "") {
+            alert("Please enter Event Name");
+            return;
+        }
 
-    let guestName =
-        document.getElementById("guestName").value;
+        if (eventDate === "") {
+            alert("Please select Event Date");
+            return;
+        }
 
-    let guestPhone =
-        document.getElementById("guestPhone").value;
+        if (eventLocation === "") {
+            alert("Please enter Event Location");
+            return;
+        }
 
-    guests.push({
-        name: guestName,
-        phone: guestPhone
-    });
+        if (eventType === "") {
+            alert("Please select Event Type");
+            return;
+        }
 
-    alert("Event Saved Successfully");
-}
 
-function showEvent() {
+        document.getElementById("eventResult").innerHTML = `
 
-    let output = "";
+            <h3>Event Created Successfully!</h3>
 
-    output += "<h2>Event Details</h2>";
+            <p>
+                <strong>Event Name:</strong>
+                ${eventName}
+            </p>
 
-    output += "Event: " + eventDetails.name + "<br>";
-    output += "Date: " + eventDetails.date + "<br>";
-    output += "Location: " + eventDetails.location + "<br>";
-    output += "Type: " + eventDetails.type + "<br>";
-    output += "Vendor: " + eventDetails.vendor + "<br>";
-    output += "Food: " + eventDetails.food + "<br>";
-    output += "Decoration: " + eventDetails.decoration + "<br>";
+            <p>
+                <strong>Event Date:</strong>
+                ${eventDate}
+            </p>
 
-    output += "<h3>Guest List</h3>";
+            <p>
+                <strong>Event Location:</strong>
+                ${eventLocation}
+            </p>
 
-    guests.forEach(function(guest) {
+            <p>
+                <strong>Event Type:</strong>
+                ${eventType}
+            </p>
 
-        output += guest.name + " - "
-                + guest.phone + "<br>";
-
-    });
-
-    document.getElementById("output").innerHTML = output;
-}
-
-function searchGuest() {
-
-    let name = prompt("Enter Guest Name");
-
-    let guest = guests.find(function(g) {
-
-        return g.name.toLowerCase() === name.toLowerCase();
+        `;
 
     });
 
-    if (guest) {
 
-        alert(
-            "Guest Found: " +
-            guest.name +
-            " (" +
-            guest.phone +
-            ")"
-        );
 
-    } else {
+// =====================================================
+// VENDOR DATA
+// =====================================================
 
-        alert("Guest Not Found");
+const vendors = {
 
+    "Decoration": [
+        "Royal Decorators",
+        "Dream Decoration",
+        "Elegant Events Decoration"
+    ],
+
+    "Food Catering": [
+        "Taste Catering",
+        "Royal Food Caterers",
+        "Gujarati Food House"
+    ],
+
+    "Photography": [
+        "Pixel Photography",
+        "Dream Clicks",
+        "Moments Photography"
+    ],
+
+    "DJ": [
+        "DJ Rock",
+        "DJ Beats",
+        "DJ Night"
+    ],
+
+    "Makeup Artist": [
+        "Beauty Glow",
+        "Makeup Studio",
+        "Bridal Beauty"
+    ]
+
+};
+
+
+
+// =====================================================
+// SHOW VENDORS
+// =====================================================
+
+document
+    .getElementById("vendorCategory")
+    .addEventListener("change", function() {
+
+        let category = this.value;
+
+        let vendorDropdown =
+            document.getElementById("vendorName");
+
+        vendorDropdown.innerHTML = `
+            <option value="">
+                Select Vendor
+            </option>
+        `;
+
+
+        if (category !== "") {
+
+            vendors[category].forEach(function(vendor) {
+
+                let option =
+                    document.createElement("option");
+
+                option.value = vendor;
+
+                option.textContent = vendor;
+
+                vendorDropdown.appendChild(option);
+
+            });
+
+        }
+
+    });
+
+
+
+// =====================================================
+// BOOK VENDOR
+// =====================================================
+
+function bookVendor() {
+
+    let category =
+        document.getElementById("vendorCategory").value;
+
+    let vendor =
+        document.getElementById("vendorName").value;
+
+
+    if (category === "") {
+
+        alert("Please select Vendor Category");
+
+        return;
     }
+
+    if (vendor === "") {
+
+        alert("Please select a Vendor");
+
+        return;
+    }
+
+
+    document.getElementById("vendorResult").innerHTML = `
+
+        <h3>Vendor Booked Successfully!</h3>
+
+        <p>
+            <strong>Category:</strong>
+            ${category}
+        </p>
+
+        <p>
+            <strong>Vendor:</strong>
+            ${vendor}
+        </p>
+
+    `;
+
 }
 
-function deleteGuest() {
 
-    let name = prompt("Enter Guest Name to Delete");
 
-    guests = guests.filter(function(g) {
+// =====================================================
+// FOOD MANAGEMENT
+// =====================================================
 
-        return g.name.toLowerCase() !== name.toLowerCase();
+function selectFood() {
 
-    });
+    let food =
+        document.getElementById("foodCategory").value;
 
-    alert("Guest Deleted");
+    let guests =
+        document.getElementById("foodGuests").value;
+
+
+    if (food === "") {
+
+        alert("Please select Food Category");
+
+        return;
+    }
+
+
+    if (guests === "" || guests <= 0) {
+
+        alert("Please enter number of guests");
+
+        return;
+    }
+
+
+    document.getElementById("foodResult").innerHTML = `
+
+        <h3>Food Selected Successfully!</h3>
+
+        <p>
+            <strong>Food Category:</strong>
+            ${food}
+        </p>
+
+        <p>
+            <strong>Number of Guests:</strong>
+            ${guests}
+        </p>
+
+    `;
+
+}
+
+
+
+// =====================================================
+// DECORATION
+// =====================================================
+
+function selectDecoration() {
+
+    let decoration =
+        document.getElementById("decorationType").value;
+
+
+    if (decoration === "") {
+
+        alert("Please select Decoration Type");
+
+        return;
+    }
+
+
+    document.getElementById("decorationResult").innerHTML = `
+
+        <h3>Decoration Selected Successfully!</h3>
+
+        <p>
+            <strong>Decoration:</strong>
+            ${decoration}
+        </p>
+
+    `;
+
 }

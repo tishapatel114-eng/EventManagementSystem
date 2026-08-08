@@ -1,73 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Event Management System</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
     <h1>Event Management System</h1>
 
+
+    <!-- ================================================= -->
+    <!-- CREATE EVENT -->
+    <!-- ================================================= -->
+
+    <hr>
+
     <h2>Create Event</h2>
 
-    <input type="text" id="eventName" placeholder="Event Name">
-    <input type="date" id="eventDate">
-    <input type="text" id="eventLocation" placeholder="Event Location">
+    <form id="eventForm">
 
-    <select id="eventType">
-        <option>Wedding</option>
-        <option>Birthday</option>
-        <option>Corporate</option>
-        <option>Festival</option>
+        <label>Event Name:</label>
+        <br>
+
+        <input
+            type="text"
+            id="eventName"
+            placeholder="Enter event name"
+        >
+
+        <br><br>
+
+        <label>Event Date:</label>
+        <br>
+
+        <input
+            type="date"
+            id="eventDate"
+        >
+
+        <br><br>
+
+        <label>Event Location:</label>
+        <br>
+
+        <input
+            type="text"
+            id="eventLocation"
+            placeholder="Enter event location"
+        >
+
+        <br><br>
+
+        <label>Event Type:</label>
+        <br>
+
+        <select id="eventType">
+
+            <option value="">
+                Select Event Type
+            </option>
+
+            <option value="Wedding">
+                Wedding
+            </option>
+
+            <option value="Birthday">
+                Birthday
+            </option>
+
+            <option value="Corporate">
+                Corporate
+            </option>
+
+            <option value="Festival">
+                Festival
+            </option>
+
+            <option value="Engagement">
+                Engagement
+            </option>
+
+            <option value="Anniversary">
+                Anniversary
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <button type="submit">
+            Create Event
+        </button>
+
+    </form>
+
+    <div id="eventResult"></div>
+
+
+    <!-- ================================================= -->
+    <!-- BOOK VENDOR -->
+    <!-- ================================================= -->
+
+    <hr>
+
+    <h2>Book Vendors</h2>
+
+    <label>Vendor Category:</label>
+    <br>
+
+    <select id="vendorCategory">
+
+        <option value="">
+            Select Vendor Category
+        </option>
+
+        <option value="Decoration">
+            Decoration
+        </option>
+
+        <option value="Food Catering">
+            Food Catering
+        </option>
+
+        <option value="Photography">
+            Photography
+        </option>
+
+        <option value="DJ">
+            DJ
+        </option>
+
+        <option value="Makeup Artist">
+            Makeup Artist
+        </option>
+
     </select>
-
-    <h2>Book Vendor</h2>
-
-    <select id="vendor">
-        <option>Decoration</option>
-        <option>Photography</option>
-        <option>Food Catering</option>
-        <option>DJ</option>
-        <option>Makeup Artist</option>
-    </select>
-
-    <h2>Food Management</h2>
-
-    <select id="food">
-        <option>Gujarati</option>
-        <option>Punjabi</option>
-        <option>Chinese</option>
-        <option>South Indian</option>
-        <option>Dessert</option>
-    </select>
-
-    <h2>Decoration</h2>
-
-    <select id="decoration">
-        <option>Royal</option>
-        <option>Traditional</option>
-        <option>Modern</option>
-        <option>Floral</option>
-    </select>
-
-    <h2>Guest List</h2>
-
-    <input type="text" id="guestName" placeholder="Guest Name">
-    <input type="text" id="guestPhone" placeholder="Phone Number">
 
     <br><br>
 
-    <button onclick="saveEvent()">Save Event</button>
-    <button onclick="showEvent()">Display Event</button>
-    <button onclick="searchGuest()">Search Guest</button>
-    <button onclick="deleteGuest()">Delete Guest</button>
+    <label>Vendor:</label>
+    <br>
 
-    <div id="output"></div>
+    <select id="vendorName">
+
+        <option value="">
+            Select Vendor
+        </option>
+
+    </select>
+
+    <br><br>
+
+    <button type="button" onclick="bookVendor()">
+        Book Vendor
+    </button>
+
+    <div id="vendorResult"></div>
+
+
+    <!-- ================================================= -->
+    <!-- FOOD MANAGEMENT -->
+    <!-- ================================================= -->
+
+    <hr>
+
+    <h2>Food Management</h2>
+
+    <label>Food Category:</label>
+    <br>
+
+    <select id="foodCategory">
+
+        <option value="">
+            Select Food Category
+        </option>
+
+        <option value="Gujarati">
+            Gujarati
+        </option>
+
+        <option value="Punjabi">
+            Punjabi
+        </option>
+
+        <option value="Chinese">
+            Chinese
+        </option>
+
+        <option value="South Indian">
+            South Indian
+        </option>
+
+        <option value="Dessert">
+            Dessert
+        </option>
+
+    </select>
+
+    <br><br>
+
+    <label>Number of Guests:</label>
+    <br>
+
+    <input
+        type="number"
+        id="foodGuests"
+        placeholder="Enter number of guests"
+        min="1"
+    >
+
+    <br><br>
+
+    <button type="button" onclick="selectFood()">
+        Select Food
+    </button>
+
+    <div id="foodResult"></div>
+
+
+    <!-- ================================================= -->
+    <!-- DECORATION -->
+    <!-- ================================================= -->
+
+    <hr>
+
+    <h2>Decoration</h2>
+
+    <label>Decoration Type:</label>
+    <br>
+
+    <select id="decorationType">
+
+        <option value="">
+            Select Decoration
+        </option>
+
+        <option value="Royal">
+            Royal
+        </option>
+
+        <option value="Traditional">
+            Traditional
+        </option>
+
+        <option value="Modern">
+            Modern
+        </option>
+
+        <option value="Floral">
+            Floral
+        </option>
+
+    </select>
+
+    <br><br>
+
+    <button type="button" onclick="selectDecoration()">
+        Select Decoration
+    </button>
+
+    <div id="decorationResult"></div>
+
+
+    <!-- JavaScript -->
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
