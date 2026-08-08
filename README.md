@@ -1,5 +1,9 @@
 # Event Management System
 
+## Project Description
+
+The Event Management System is a web-based project used to manage events and related services.
+
 ## Features
 
 - Create Event

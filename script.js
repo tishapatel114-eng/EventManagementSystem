@@ -71,7 +71,6 @@ document
     });
 
 
-
 // =====================================================
 // VENDOR DATA
 // =====================================================
@@ -111,7 +110,6 @@ const vendors = {
 };
 
 
-
 // =====================================================
 // VENDOR CATEGORY
 // =====================================================
@@ -149,7 +147,6 @@ document
         });
 
     });
-
 
 
 // =====================================================
@@ -202,7 +199,6 @@ document
     });
 
 
-
 // =====================================================
 // FOOD MANAGEMENT
 // =====================================================
@@ -212,7 +208,6 @@ document
     .addEventListener("submit", function (event) {
 
         event.preventDefault();
-
 
         const foodCategory =
             document.getElementById("foodCategory").value;
@@ -272,12 +267,12 @@ document
 
         `;
 
+
         document
             .getElementById("foodForm")
             .reset();
 
     });
-
 
 
 // =====================================================
@@ -289,7 +284,6 @@ document
     .addEventListener("submit", function (event) {
 
         event.preventDefault();
-
 
         const decorationType =
             document.getElementById("decorationType").value;
@@ -330,12 +324,12 @@ document
 
         `;
 
+
         document
             .getElementById("decorationForm")
             .reset();
 
     });
-
 
 
 // =====================================================
@@ -347,7 +341,6 @@ document
     .addEventListener("submit", function (event) {
 
         event.preventDefault();
-
 
         const guestCategory =
             document.getElementById("guestCategory").value;
