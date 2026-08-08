@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Event Management System</title>
@@ -15,6 +14,7 @@
 
     <h1>Event Management System</h1>
 
+
     <!-- ================= CREATE EVENT ================= -->
 
     <h2>Create Event</h2>
@@ -23,33 +23,19 @@
 
         <label>Event Name:</label>
         <br>
-
-        <input
-            type="text"
-            id="eventName"
-            placeholder="Enter event name"
-        >
+        <input type="text" id="eventName" placeholder="Enter event name">
 
         <br><br>
 
         <label>Event Date:</label>
         <br>
-
-        <input
-            type="date"
-            id="eventDate"
-        >
+        <input type="date" id="eventDate">
 
         <br><br>
 
         <label>Event Location:</label>
         <br>
-
-        <input
-            type="text"
-            id="eventLocation"
-            placeholder="Enter event location"
-        >
+        <input type="text" id="eventLocation" placeholder="Enter location">
 
         <br><br>
 
@@ -57,34 +43,16 @@
         <br>
 
         <select id="eventType">
-
-            <option value="">
-                Select Event Type
-            </option>
-
-            <option value="Wedding">
-                Wedding
-            </option>
-
-            <option value="Birthday">
-                Birthday
-            </option>
-
-            <option value="Corporate">
-                Corporate
-            </option>
-
-            <option value="Engagement">
-                Engagement
-            </option>
-
+            <option value="">Select Event Type</option>
+            <option value="Wedding">Wedding</option>
+            <option value="Birthday">Birthday</option>
+            <option value="Corporate">Corporate</option>
+            <option value="Engagement">Engagement</option>
         </select>
 
         <br><br>
 
-        <button type="submit">
-            Create Event
-        </button>
+        <button type="submit">Create Event</button>
 
     </form>
 
@@ -102,57 +70,125 @@
 
     <select id="vendorCategory">
 
-        <option value="">
-            Select Vendor Category
-        </option>
+        <option value="">Select Vendor Category</option>
 
-        <option value="Decoration">
-            Decoration
-        </option>
+        <option value="Decoration">Decoration</option>
 
-        <option value="Food Catering">
-            Food Catering
-        </option>
+        <option value="Food Catering">Food Catering</option>
 
-        <option value="Photography">
-            Photography
-        </option>
+        <option value="Photography">Photography</option>
 
-        <option value="DJ">
-            DJ
-        </option>
+        <option value="DJ">DJ</option>
 
-        <option value="Makeup Artist">
-            Makeup Artist
-        </option>
+        <option value="Makeup Artist">Makeup Artist</option>
 
     </select>
 
     <br><br>
-
 
     <label>Select Vendor:</label>
     <br>
 
     <select id="vendorName">
 
-        <option value="">
-            Select Vendor
-        </option>
+        <option value="">Select Vendor</option>
 
     </select>
 
     <br><br>
 
-    <button
-        type="button"
-        onclick="bookVendor()"
-    >
+    <button type="button" id="bookVendorButton">
         Book Vendor
     </button>
 
     <div id="vendorResult"></div>
 
+
+    <!-- ================= GUEST LIST ================= -->
+
+    <hr>
+
+    <h2>Guest List</h2>
+
+    <form id="guestForm">
+
+        <label>Guest Category:</label>
+        <br>
+
+        <select id="guestCategory">
+
+            <option value="">Select Guest Category</option>
+
+            <option value="Family">Family</option>
+
+            <option value="Friends">Friends</option>
+
+            <option value="Relatives">Relatives</option>
+
+            <option value="Colleagues">Colleagues</option>
+
+        </select>
+
+        <br><br>
+
+
+        <label>Number of Guests:</label>
+        <br>
+
+        <input
+            type="number"
+            id="guestCount"
+            placeholder="Enter number of guests"
+            min="1"
+        >
+
+        <br><br>
+
+
+        <label>Invitation Status:</label>
+        <br>
+
+        <select id="invitationStatus">
+
+            <option value="">Select Invitation Status</option>
+
+            <option value="Sent">Sent</option>
+
+            <option value="Pending">Pending</option>
+
+        </select>
+
+        <br><br>
+
+
+        <label>RSVP Status:</label>
+        <br>
+
+        <select id="rsvpStatus">
+
+            <option value="">Select RSVP Status</option>
+
+            <option value="Confirmed">Confirmed</option>
+
+            <option value="Pending">Pending</option>
+
+            <option value="Declined">Declined</option>
+
+        </select>
+
+        <br><br>
+
+
+        <button type="submit">
+            Add Guest Group
+        </button>
+
+    </form>
+
+    <div id="guestResult"></div>
+
+
+    <!-- IMPORTANT: script must be loaded AFTER all HTML -->
 
     <script src="script.js"></script>
 
